@@ -1,0 +1,14 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE users(
+   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+   username VARCHAR(255) NOT NULL,
+   email VARCHAR(255) UNIQUE,
+   hashedPassword VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE posts(
+   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+   post VARCHAR(255) NOT NULL,
+   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
+);
