@@ -4,19 +4,28 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/forms.css" />
-        <link rel="stylesheet" href="/css/style.css" /> 
+        <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/navbar.css" />
         <title>Add new post</title>
     </head>
     <body>
         <%- include('../partials/navbar.ejs', {user}) %>
         <div class="container">
+            <h1>New Post</h1>
 
-            <form action="/posts/new" class="addpost">
+            <form action="/posts/new" class="addpost" method="post">
+                <% if (locals.error) { %>
+                <p id="error"><%= error %></p>
+                <% } %>
                 <label for="title">Title</label>
-                <input name="title" type="text">
+                <input name="title" type="text" />
                 <label for="description">Post Content: </label>
-                <textarea id="description" name="description" rows="10" cols="50"></textarea>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="15"
+                    cols="50"
+                ></textarea>
                 <button>Publish Post</button>
             </form>
         </div>

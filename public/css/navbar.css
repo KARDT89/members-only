@@ -1,6 +1,6 @@
 :root {
     --navbar-background: black;
-    --navbar-hover: rgb(13, 14, 15);
+    --navbar-hover: rgb(255, 255, 255);
 }
 
 ul {
@@ -9,12 +9,13 @@ ul {
     justify-content: space-between;
     align-items: center;
     margin: 0;
+    padding-block: 0;
     background-color: var(--navbar-background);
     padding-left: 2rem;
     padding-right: 0.5rem;
 }
 
-li{
+li {
     background-color: var(--navbar-background);
     padding: 0.8rem;
     cursor: pointer;
@@ -22,7 +23,8 @@ li{
 }
 
 li:hover {
-    background-color: var(--navbar-hover)
+    background-color: var(--navbar-hover);
+    color: black;
 }
 
 a {

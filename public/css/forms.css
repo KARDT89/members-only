@@ -20,6 +20,11 @@ label {
     background-color: var(--primary-bg-color);
 }
 
+.addpost textarea {
+    resize: none; 
+    overflow-y: scroll;
+}
+
 button {
     padding-inline: 0.5rem;
     padding-block: 0.5rem;
