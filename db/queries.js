@@ -1,8 +1,13 @@
 import pool from "./pool.js";
 
 async function getAllUsers() {
-    const { rows } = await pool.query("SELECT * FROM users");
-    return rows;
+    try {
+        const { rows } = await pool.query("SELECT * FROM users");
+        return { success: true, data: rows };
+    } catch (error) {
+        console.error("DB ERROR (getAllUsers):", error);
+        return { success: false, message: "Failed to fetch users." };
+    }
 }
 
 async function addNewPost(userId, title, description) {

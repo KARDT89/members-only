@@ -25,6 +25,11 @@ label {
     overflow-y: scroll;
 }
 
+.right > p {
+    padding-right: 1rem;
+}
+
+
 button {
     padding-inline: 0.5rem;
     padding-block: 0.5rem;

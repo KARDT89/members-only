@@ -2,7 +2,7 @@ import db from "../db/queries.js";
 
 function getNewPost(req, res) {
     if (req.user) {
-        res.render("forms/add-post-form", { user: req.user });
+        res.render("forms/add-post-form", { user: req.user , old: {}});
     } else {
         res.redirect("/");
     }
@@ -16,6 +16,7 @@ async function postNewPost(req, res) {
         return res.status(400).render("forms/add-post-form", {
             user: req.user,
             error: "Title and description are required.",
+            old: { title, description }
         });
     }
     try {
@@ -25,6 +26,7 @@ async function postNewPost(req, res) {
             return res.status(500).render("forms/add-post-form", {
                 user: req.user,
                 error: result.message,
+                old: { title, description }
             });
         }
         return res.redirect("/");
@@ -35,6 +37,7 @@ async function postNewPost(req, res) {
         return res.status(500).render("forms/add-post-form", {
             user: req.user,
             error: "Something went wrong while creating your post.",
+            old: { title, description }
         });
     }
 }

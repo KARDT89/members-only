@@ -18,13 +18,14 @@
                 <p id="error"><%= error %></p>
                 <% } %>
                 <label for="title">Title</label>
-                <input name="title" type="text" />
-                <label for="description">Post Content: </label>
+                <input name="title" type="text" value="<%= old?.title || '' %>"/>
+                <label for="description" >Post Content: </label>
                 <textarea
                     id="description"
                     name="description"
                     rows="15"
                     cols="50"
+                    value="<%= old?.description || '' %>"
                 ></textarea>
                 <button>Publish Post</button>
             </form>
