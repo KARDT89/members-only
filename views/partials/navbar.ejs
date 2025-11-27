@@ -11,19 +11,19 @@
             <a href="https://github.com/KARDT89/members-only" target="_blank"><p>Member's Only</p></a>
             <div>
                 <% if (user) {%>
-                <li><a href="/">Home</a></li>
-                <li><a href="/posts">Manage</a></li>
-                <li><a href="/posts/new">Add Post</a></li>
+                <a href="/"><li>Home</li></a>
+                <a href="/posts"><li>Manage</li></a>
+                <a href="/posts/new"><li>Add Post</li></a>
                 <%}%>
             </div>
            
             <div class="right">
                 <% if (user) {%>
                 <p>Welcome, <%= user.username.toUpperCase() %></p>
-                <li><a href="/log-out">Logout</a></li>
+                 <a href="/log-out"><li>Logout</li></a>
                 <% } else { %>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/sign-up">Signup</a></li>
+                <a href="/login"><li>Login</li></a>
+                <a href="/sign-up"><li>Signup</li></a>
                 <%}%>
             </div>
         </ul>
