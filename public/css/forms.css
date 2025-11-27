@@ -14,14 +14,7 @@ form {
     border: 2px solid white;
 }
 
-form > span {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--primary-bg-color);
-   
-}
+
 
 label {
     background-color: var(--primary-bg-color);
@@ -50,11 +43,25 @@ input {
     border: 1px solid rgb(255, 255, 255);
 }
 
-p {
+#error {
     color: #ff0000;
     text-align: center;
+}
+
+#already {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p {
     padding: 0;
     margin: 0;
+}
+
+a {
+    text-decoration: none;
 }
 
 body {

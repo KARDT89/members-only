@@ -2,7 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>Sign Up</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/forms.css" />
     </head>
     <body>
         <h1>Sign Up</h1>
@@ -11,11 +15,15 @@
             <input
                 id="username"
                 name="username"
-                placeholder="username"
+               
                 type="text"
             />
             <label for="password">Password</label>
             <input id="password" name="password" type="password" />
+             <div id="already">
+                <p>Already have an Account?</p>
+                <a href="/login">Login</a>
+            </div>
             <button type="submit">Sign Up</button>
         </form>
     </body>
