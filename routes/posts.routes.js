@@ -1,9 +1,10 @@
 import { Router } from "express";
+import { getNewPost, postNewPost, getPosts } from "../controllers/posts.controller.js";
 
 const router = new Router()
 
-router.get("/posts", getPosts);          // "your posts" page
-router.get("/posts/new", getNewPost);    // add post form
-router.post("/posts/new", postNewPost);  // submit new post
+router.get("/", getPosts);          // "your posts" page
+router.get("/new", getNewPost);    // add post form
+router.post("/new", postNewPost);  // submit new post
 
 export default router;

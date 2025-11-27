@@ -3,6 +3,7 @@ import session from "express-session";
 import passport from "passport";
 import homeRouter from "./routes/home.routes.js";
 import authRouter from "./routes/auth.routes.js";
+import postsRouter from "./routes/posts.routes.js"
 import initializePassport from "./config/passport.js";
 import ejsLayouts from "express-ejs-layouts";
 
@@ -30,6 +31,7 @@ app.use(passport.session());
 
 app.use("/", homeRouter);
 app.use("/", authRouter)
+app.use("/posts", postsRouter)
 
 app.listen(PORT, (error) => {
     if (error) {
