@@ -1,23 +1,28 @@
+:root {
+    --navbar-background: black;
+    --navbar-hover: rgb(13, 14, 15);
+}
+
 ul {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    background-color: rgb(13, 14, 15);
+    background-color: var(--navbar-background);
     padding-left: 2rem;
     padding-right: 0.5rem;
 }
 
 li{
-    background-color: rgb(13, 14, 15);
+    background-color: var(--navbar-background);
     padding: 0.8rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 li:hover {
-    background-color: rgb(55, 73, 90);
+    background-color: var(--navbar-hover)
 }
 
 a {
@@ -26,7 +31,7 @@ a {
 }
 
 ul > div, p {
-    background-color: rgb(13, 14, 15);
+    background-color: var(--navbar-background);
     display: flex;
     justify-content: center;
     align-items: center;
