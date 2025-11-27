@@ -1,0 +1,17 @@
+<ul>
+    <div>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Manage</a></li>
+        <li><a href="/posts/new">Add Post</a></li>
+    </div>
+    <p>Member's Only</p>
+    <div class="right">
+        <% if (user) {%>
+        <p>Welcome, <%= user.username.toUpperCase() %></p>
+        <li><a href="/log-out">Logout</a></li>
+        <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/sign-up">Signup</a></li>
+        <%}%>
+    </div>
+</ul>

@@ -4,6 +4,7 @@ import passport from "passport";
 import homeRouter from "./routes/home.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import initializePassport from "./config/passport.js";
+import ejsLayouts from "express-ejs-layouts";
 
 const app = new express();
 const PORT = 3000;
@@ -18,6 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
+app.use(ejsLayouts);
+app.set("layout", "layouts/main");
+
 
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 initializePassport();
