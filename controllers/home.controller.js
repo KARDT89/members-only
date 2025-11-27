@@ -12,7 +12,8 @@ async function getUsernames(req, res) {
 }
 
 function getHome(req, res) {
-  res.render("index")
+  console.log(req.user);
+  res.render("index", { user: req.user })
 }
 
 
