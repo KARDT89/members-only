@@ -1,6 +1,6 @@
 import db from "../db/queries.js"
 
-export async function getUsernames(req, res) {
+async function getUsernames(req, res) {
   try {
     const usernames = await db.getAllUsers();
     console.log("Usernames: ", usernames);
@@ -11,7 +11,12 @@ export async function getUsernames(req, res) {
   }
 }
 
+function getHome(req, res) {
+  res.render("index")
+}
 
-export default {
-    getUsernames
+
+export {
+    getUsernames,
+    getHome
 }

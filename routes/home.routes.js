@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { getUsernames } from "../controllers/home.controller.js";
+import { getUsernames, getHome } from "../controllers/home.controller.js";
 
 
-const homeRouter = new Router()
+const router = new Router()
 
-homeRouter.get("/", getUsernames)
+router.get("/", getHome)
 
-export default homeRouter
+export default router;
