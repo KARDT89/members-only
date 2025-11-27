@@ -1,40 +1,7 @@
-* {
-    background-color: #362f2f;
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100..900&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    font-family: Outfit;
+    background-color: rgb(55, 73, 90);
     color: white;
-}
-
-ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    background-color: rgb(13, 14, 15);
-    padding-inline: 0.2rem;
-}
-
-li{
-    background-color: rgb(13, 14, 15);
-    padding: 0.8rem;
-    cursor: pointer;
-}
-
-
-li:hover {
-    background-color: rgb(35, 38, 41);
-}
-
-a {
-    text-decoration: none;
-}
-
-ul > div, p {
-    background-color: rgb(13, 14, 15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.right {
-    gap: 1rem;
 }

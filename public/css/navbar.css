@@ -1,0 +1,37 @@
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    background-color: rgb(13, 14, 15);
+    padding-left: 2rem;
+    padding-right: 0.5rem;
+}
+
+li{
+    background-color: rgb(13, 14, 15);
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+li:hover {
+    background-color: rgb(55, 73, 90);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul > div, p {
+    background-color: rgb(13, 14, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    gap: 1rem;
+}
