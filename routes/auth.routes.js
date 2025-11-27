@@ -6,12 +6,13 @@ const router = new Router()
 
 router.get("/sign-up", getSignup)
 router.post("/sign-up", postSignup)
-router.get("/log-in", getLogin)
+router.get("/login", getLogin)
 router.post(
-  "/log-in",
+  "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/log-in",
+    failureRedirect: "/login",
+    failureMessage: true
   })
 );
 router.get("/log-out", (req, res, next) => {

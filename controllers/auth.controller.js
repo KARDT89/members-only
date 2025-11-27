@@ -18,8 +18,9 @@ async function postSignup(req, res, next) {
 }
 
 function getLogin(req, res) {
-    res.render("forms/log-in-form");
+    const error = req.session.messages || [];
+    req.session.messages = []; // clear messages so they don't persist
+    res.render("forms/log-in-form", { error });
 }
-
 
 export { getSignup, postSignup, getLogin };
