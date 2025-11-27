@@ -21,7 +21,7 @@
 
             <div class="right">
                 <% if (user) {%>
-                <p>Welcome, <%= user.username.toUpperCase() %></p>
+                <p class="welcome-user">Welcome, <%= user.username.toUpperCase() %></p>
                 <a href="/log-out"><li id="logout">Logout</li></a>
                 <% } else { %>
                 <a href="/login"><li>Login</li></a>

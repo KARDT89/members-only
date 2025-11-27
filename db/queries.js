@@ -35,7 +35,18 @@ async function addNewPost(userId, title, description) {
     }
 }
 
+async function getAllPosts() {
+    try {
+       const { rows } = await pool.query("SELECT * from posts;")
+       return { success: true, data: rows };
+    } catch (error) {
+      console.error("DB ERROR (getAllPosts):", error);
+        return { success: false, message: "Failed to fetch posts." };
+    }
+}
+
 export default {
     getAllUsers,
-    addNewPost
+    addNewPost,
+    getAllPosts
 };

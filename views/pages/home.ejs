@@ -4,12 +4,24 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/style.css" />
-         <link rel="stylesheet" href="/css/forms.css" />
+        <!-- <link rel="stylesheet" href="/css/forms.css" /> -->
         <title>Home</title>
     </head>
     <body>
         <%- include("../partials/navbar", { user }) %>
-        <h1>Welcome</h1>
-        <button type="button" class="btn">Base class</button>
+        <h1>Welcome to Pulse</h1>
+        <% if (error) { %>
+        <p id="error"><%= error %></h1>
+        <% } %>
+        <div class="all-post-container">
+            <% if (data.length > 0) { %>
+                <% data.forEach(post => { %>
+                    <div class="post-card">
+                        <h2 class="post-title"><%= post.title %></h2>
+                        <p class="post-desc"><%= post.description %></p>
+                    </div>
+                    <% }) %>
+            <% } %>
+        </div>
     </body>
 </html>

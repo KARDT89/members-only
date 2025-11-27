@@ -23,3 +23,48 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(37, 40, 43); 
   }
+
+  .all-post-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+.post-card {
+    background-color: black;
+    border: 1px solid #333;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 90%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    border-radius: 8px;
+}
+
+.post-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    background-color: black;
+}
+
+.post-desc {
+    font-size: 0.8rem;
+    background-color: black;
+    color: #ccc;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+

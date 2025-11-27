@@ -12,7 +12,7 @@
             <h1>Login</h1>
             <form action="/login" method="POST">
                 <% if (error && error.length > 0) { %>
-                <p id="error"><%= error[0] %></p>
+                    <p id="error"><%= error[0] %></p>
                 <% } %>
 
                 <label for="username">Username</label>

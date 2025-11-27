@@ -38,7 +38,7 @@ a {
     color: white;
 }
 
-ul > div, p {
+ul > div, .welcome-user {
     background-color: var(--navbar-background);
     display: flex;
     justify-content: center;
