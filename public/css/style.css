@@ -59,8 +59,15 @@
     background-color: #1a1d20;
 }
 
+.delete-btn {
+   padding: 0;
+}
+
 .post-card-btn {
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1rem;
   background-color: #1a1d20;
 }

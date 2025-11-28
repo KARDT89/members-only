@@ -147,6 +147,31 @@ async function updatePostByPostId(id, title, description) {
     }
 }
 
+async function deletePostByPostId(id) {
+    try {
+        await pool.query(
+            `
+      DELETE from posts
+      WHERE id = $1
+      `,
+            [id]
+        );
+        return {
+            success: true,
+            message: "Successfully deleted post",
+        };
+    } catch (error) {
+        // 1. Log detailed error internally
+        console.error("DB ERROR (deletePostByPostId):", error);
+
+        // 2. Return a safe error up the chain
+        return {
+            success: false,
+            message: "Failed to delete post.",
+        };
+    }
+}
+
 export default {
     getAllUsers,
     addNewPost,
@@ -156,5 +181,6 @@ export default {
     getAllPostsWithUsers,
     getPostsByUserId,
     getPostByPostId,
-    updatePostByPostId
+    updatePostByPostId,
+    deletePostByPostId
 };

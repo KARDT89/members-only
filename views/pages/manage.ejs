@@ -20,9 +20,12 @@
                     <div class="post-card">
                         <h2 class="post-title">
                             <%= post.title %>
+                          
                             <div class="post-card-btn">
-                               <a href="/posts/edit/<%= post.id %>"><button>Edit</button></a>
-                               <a href="/posts/delete/<%= post.id %>"><button id="logout">Delete</button></a>
+                               <a href="/posts/edit/<%= post.id %>"><button class="delete-btn"><img src="/icons/edit.png" alt="" width="25px"></button></a>
+                               <form style="padding: 0;" action="/posts/delete/<%= post.id %>" method="post" >
+                                  <button class="delete-btn"><img src="/icons/trash.png" alt="" width="25px"></button>
+                               </form>
                             </div>
                         </h2>
                         <p class="post-desc"><%= post.description %></p>

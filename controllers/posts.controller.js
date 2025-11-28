@@ -96,4 +96,17 @@ async function getManagePosts(req, res) {
     }
 }
 
-export { getNewPost, postNewPost, getManagePosts, getEditPost, postEditPost };
+async function postDeletePost(req, res) {
+    try {
+        const result = await db.deletePostByPostId(req.params.id)
+        if (!result.success) {
+            return res.status(500)
+        }
+        return res.redirect("/")
+    } catch (error) {
+        console.error("Controller ERROR (postDeletePost):", error);
+        return res.status(500).send("couldnot delete post")
+    }
+}
+
+export { getNewPost, postNewPost, getManagePosts, getEditPost, postEditPost, postDeletePost };
