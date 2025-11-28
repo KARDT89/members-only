@@ -2,6 +2,9 @@ import passport from "passport";
 import passportLocal from "passport-local";
 import pool from "../db/pool.js";
 import bcrypt from "bcryptjs";
+import { configDotenv } from "dotenv";
+
+configDotenv();
 
 const LocalStrategy = passportLocal.Strategy;
 
@@ -23,7 +26,7 @@ export default function initializePassport() {
                     // passwords do not match!
                     return done(null, false, { message: "Incorrect password" });
                 }
-                
+
                 return done(null, user);
             } catch (err) {
                 return done(err);
