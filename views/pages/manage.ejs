@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/forms.css" />
+        <link rel="stylesheet" href="/css/navbar.css" />
+        <title>Manage</title>
+    </head>
+    <body>
+        <%- include("../partials/navbar", { user }) %>
+        <div class="manage-header">
+            <h1>Manage Your Posts</h1>
+            <a href="/posts/new"><button>Add a New Post</button></a>
+        </div>
+        <div class="all-post-container">
+         <% if (data.length > 0) { %>
+                <% data.forEach(post => { %>
+                    <div class="post-card">
+                        <h2 class="post-title">
+                            <%= post.title %>
+                            <div class="post-card-btn">
+                               <a href="/posts/edit/<%= post.id %>"><button>Edit</button></a>
+                               <a href="/posts/delete/<%= post.id %>"><button id="logout">Delete</button></a>
+                            </div>
+                        </h2>
+                        <p class="post-desc"><%= post.description %></p>
+                        <% if (user && user.is_member === true) { %>
+                            <p><%= post.created_at.toLocaleString() %></p>
+                            <p>Posted by: <%= user.username %></p>
+                        <% } %>
+                       
+                    </div>
+                    <% }) %>
+            <% } %>
+        </div>
+    </body>
+</html>

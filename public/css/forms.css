@@ -30,6 +30,11 @@ label {
     padding-right: 1rem;
 }
 
+.manage-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 button {
     padding-inline: 0.5rem;

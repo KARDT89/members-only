@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/forms.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/navbar.css" />
+        <title>Add new post</title>
+    </head>
+    <body>
+        <%- include('../partials/navbar.ejs', {user}) %>
+        <div class="container">
+            <h1>Edit Post</h1>
+
+            <form action="/posts/edit/<%= old.id %>" class="addpost" method="post">
+                <% if (locals.error) { %>
+                <p id="error"><%= error %></p>
+                <% } %>
+                <label for="title">Title</label>
+                <input name="title" type="text" value="<%= old.title %>"/>
+                <label for="description" >Post Content: </label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="15"
+                    cols="50"
+                ><%= old.description %></textarea>
+                <button>Edit Post</button>
+            </form>
+        </div>
+    </body>
+</html>

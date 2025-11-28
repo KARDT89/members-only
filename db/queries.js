@@ -25,6 +25,21 @@ async function getUserByUsername(username) {
     }
 }
 
+async function getPostsByUserId(id) {
+    try {
+        const { rows } = await pool.query(
+            "SELECT * FROM posts WHERE user_id = $1;",
+            [id]
+        );
+        if (rows.length === 0)
+            return { success: false, message: "Posts not found" };
+        return { success: true, data: rows };
+    } catch (error) {
+        console.error("DB ERROR (getPostsByUserId):", error);
+        return { success: false, message: "Failed to fetch posts." };
+    }
+}
+
 async function getUserById(id) {
     try {
         const { rows } = await pool.query(
@@ -37,6 +52,21 @@ async function getUserById(id) {
     } catch (error) {
         console.error("DB ERROR (getUserId):", error);
         return { success: false, message: "Failed to fetch user." };
+    }
+}
+
+async function getPostByPostId(id) {
+    try {
+        const { rows } = await pool.query(
+            "SELECT * FROM posts WHERE id = $1;",
+            [id]
+        );
+        if (rows.length === 0)
+            return { success: false, message: "Post not found" };
+        return { success: true, data: rows };
+    } catch (error) {
+        console.error("DB ERROR (getPostByPostId):", error);
+        return { success: false, message: "Failed to fetch post." };
     }
 }
 
@@ -91,11 +121,40 @@ async function getAllPosts() {
     }
 }
 
+async function updatePostByPostId(id, title, description) {
+    try {
+        await pool.query(
+            `
+      UPDATE posts
+      SET title = $1, description = $2
+      WHERE id = $3
+      `,
+            [title, description, id]
+        );
+        return {
+            success: true,
+            message: "Successfully edited post",
+        };
+    } catch (error) {
+        // 1. Log detailed error internally
+        console.error("DB ERROR (updatePostByPostId):", error);
+
+        // 2. Return a safe error up the chain
+        return {
+            success: false,
+            message: "Failed to update post.",
+        };
+    }
+}
+
 export default {
     getAllUsers,
     addNewPost,
     getAllPosts,
     getUserByUsername,
     getUserById,
-    getAllPostsWithUsers
+    getAllPostsWithUsers,
+    getPostsByUserId,
+    getPostByPostId,
+    updatePostByPostId
 };

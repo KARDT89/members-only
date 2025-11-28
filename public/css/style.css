@@ -49,11 +49,20 @@
 }
 
 .post-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 0;
     font-size: 1.4rem;
     font-weight: 600;
     color: #fff;
     background-color: #1a1d20;
+}
+
+.post-card-btn {
+  gap: 2rem;
+  font-size: 1rem;
+  background-color: #1a1d20;
 }
 
 .post-desc {
