@@ -14,7 +14,9 @@ async function getUsernames(req, res) {
 
 async function getHome(req, res) {
     try {
-        const result = await db.getAllPosts();
+        const result = await db.getAllPostsWithUsers();
+        console.log(result);
+        
         if (!result.success) {
             return res.status(500).render("pages/home", {
                 user: req.user,
@@ -22,6 +24,7 @@ async function getHome(req, res) {
                 error: result.message,
             });
         }
+
         res.status(200).render("pages/home", {
             user: req.user,
             data: result.data,

@@ -14,18 +14,23 @@
             <div>
                 <% if (user) {%>
                 <a href="/"><li>Home</li></a>
-                <a href="/posts"><li>Manage</li></a>
                 <a href="/posts/new"><li>Add Post</li></a>
+                <a href="/posts/new"><li>Membership</li></a>
                 <%}%>
             </div>
 
             <div class="right">
                 <% if (user) {%>
-                <p class="welcome-user">Welcome, <%= user.username.toUpperCase() %></p>
+                <p class="welcome-user">
+                    Welcome, <%= user.username.toUpperCase() %>
+                </p>
+                <% if (user.is_admin === true) { %>
+                    <a href="/posts"><li>Admin</li></a>
+                <% } %>
                 <a href="/log-out"><li id="logout">Logout</li></a>
                 <% } else { %>
-                <a href="/login"><li>Login</li></a>
-                <a href="/sign-up"><li>Signup</li></a>
+                    <a href="/login"><li>Login</li></a>
+                    <a href="/sign-up"><li>Signup</li></a>
                 <%}%>
             </div>
         </ul>

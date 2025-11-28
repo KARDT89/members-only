@@ -25,6 +25,37 @@ async function getUserByUsername(username) {
     }
 }
 
+async function getUserById(id) {
+    try {
+        const { rows } = await pool.query(
+            "SELECT * FROM users WHERE id = $1;",
+            [id]
+        );
+        if (rows.length === 0)
+            return { success: false, message: "User not found" };
+        return { success: true, data: rows };
+    } catch (error) {
+        console.error("DB ERROR (getUserId):", error);
+        return { success: false, message: "Failed to fetch user." };
+    }
+}
+
+async function getAllPostsWithUsers() {
+    try {
+        const { rows } = await pool.query(`
+            SELECT p.*, u.username 
+            FROM posts p
+            JOIN users u ON u.id = p.user_id
+            ORDER BY p.created_at DESC;
+        `);
+
+        return { success: true, data: rows };
+    } catch (error) {
+        console.error("DB ERROR (getAllPostsWithUsers):", error);
+        return { success: false, message: "Failed to fetch posts." };
+    }
+}
+
 async function addNewPost(userId, title, description) {
     try {
         await pool.query(
@@ -64,5 +95,7 @@ export default {
     getAllUsers,
     addNewPost,
     getAllPosts,
-    getUserByUsername
+    getUserByUsername,
+    getUserById,
+    getAllPostsWithUsers
 };

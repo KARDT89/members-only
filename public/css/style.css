@@ -35,8 +35,7 @@
     border: 1px solid #333;
     padding: 1.5rem;
     margin: 1rem;
-    width: 90%;
-    max-width: 600px;
+    max-width: 400px;
 
     display: flex;
     flex-direction: column;
