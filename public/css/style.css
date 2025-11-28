@@ -61,6 +61,12 @@
 
 .delete-btn {
    padding: 0;
+   background-color: #1a1d20;
+}
+
+.delete-btn:hover {
+   padding: 0;
+   background-color: #1a1d20;
 }
 
 .post-card-btn {
