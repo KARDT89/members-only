@@ -54,6 +54,19 @@ async function getMembership(req, res) {
     }
 }
 
+async function getAdmin(req, res) {
+    if (req.user && req.user.is_admin) {
+        const membershipStatus = await db.getUserById(req.user.id);
+        res.render("pages/admin", {
+            user: req.user,
+            status: membershipStatus.data[0].is_member,
+            error: "",
+        });
+    } else {
+        res.redirect("/");
+    }
+}
+
 async function postMembership(req, res) {
     const secretPassword = "theodinproject";
     try {
@@ -81,4 +94,4 @@ async function postMembership(req, res) {
     }
 }
 
-export { getUsernames, getHome, getMembership, postMembership };
+export { getUsernames, getHome, getMembership, postMembership, getAdmin };

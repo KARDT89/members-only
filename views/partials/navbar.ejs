@@ -25,7 +25,7 @@
                     Welcome, <%= user.username.toUpperCase() %>
                 </p>
                 <% if (user.is_admin === true) { %>
-                    <a href="/posts"><li>Admin</li></a>
+                    <a href="/admin"><li>Admin</li></a>
                 <% } %>
                 <a href="/log-out"><li id="logout">Logout</li></a>
                 <% } else { %>
