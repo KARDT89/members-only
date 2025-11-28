@@ -56,15 +56,33 @@ async function getMembership(req, res) {
 
 async function getAdmin(req, res) {
     if (req.user && req.user.is_admin) {
-        const membershipStatus = await db.getUserById(req.user.id);
+        const allMembers = await db.getAllUsers();
         res.render("pages/admin", {
             user: req.user,
-            status: membershipStatus.data[0].is_member,
+            members: allMembers.data,
             error: "",
         });
     } else {
         res.redirect("/");
     }
+}
+
+async function postAdmin(req, res) {
+    const { id } = req.body;
+
+    const is_member = req.body.is_member ? true : false;
+    const is_admin = req.body.is_admin ? true : false;
+
+    await pool.query(
+        `
+        UPDATE users 
+        SET is_member = $1, is_admin = $2
+        WHERE id = $3
+        `,
+        [is_member, is_admin, id]
+    );
+
+    res.redirect("/admin");
 }
 
 async function postMembership(req, res) {
@@ -94,4 +112,4 @@ async function postMembership(req, res) {
     }
 }
 
-export { getUsernames, getHome, getMembership, postMembership, getAdmin };
+export { getUsernames, getHome, getMembership, postMembership, getAdmin, postAdmin };

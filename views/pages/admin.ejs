@@ -10,5 +10,46 @@
 </head>
 <body>
      <%- include("../partials/navbar", { user }) %>
+     <table class="user-table">
+    <tr>
+        <th>Username</th>
+        <th>Member</th>
+        <th>Admin</th>
+        <th>Action</th>
+    </tr>
+
+    <% members.forEach(member => { %>
+    <tr>
+        <form action="/admin/update-user" method="POST">
+            <td><%= member.username %></td>
+
+            <td>
+                <input 
+                    type="checkbox" 
+                    name="is_member"
+                    <%= member.is_member ? "checked" : "" %>
+                />
+            </td>
+
+            <td>
+                <input 
+                    type="checkbox" 
+                    name="is_admin"
+                    <%= member.is_admin ? "checked" : "" %>
+                    <%= member.id === user.id ? "disabled" : "" %>
+                />
+            </td>
+
+            <td>
+                <input type="hidden" name="id" value="<%= member.id %>" />
+                <button class="save-btn" type="submit">Save</button>
+            </td>
+        </form>
+    </tr>
+    <% }) %>
+</table>
+
+
+
 </body>
 </html>
