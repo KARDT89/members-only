@@ -12,10 +12,17 @@
         <div class="container">
             <h1>Sign Up</h1>
             <form action="/sign-up" method="POST">
+                <% if (errors) { %>
+                  <% errors.forEach(err => { %>
+                    <p id="error"><%= err.msg %></p>
+                  <% }) %>
+                <% } %>
                 <label for="username">Username</label>
-                <input id="username" name="username" type="text" />
+                <input id="username" name="username" type="text" value="<%= username || ''%>"/>
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password" />
+                <input id="password" name="password" type="password"  value="<%= password || ''%>"/>
+                <label for="confirm-password">Confirm Password</label>
+                <input id="confirm-password" name="confirm-password" type="text" value="<%= confirmPassword || ''%>"/>
                 <div id="already">
                     <p>Already have an Account?</p>
                     <a href="/login">Login</a>

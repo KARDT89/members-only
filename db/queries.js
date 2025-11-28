@@ -10,6 +10,21 @@ async function getAllUsers() {
     }
 }
 
+async function getUserByUsername(username) {
+    try {
+        const { rows } = await pool.query(
+            "SELECT * FROM users WHERE username = $1;",
+            [username]
+        );
+        if (rows.length === 0)
+            return { success: false, message: "User not found" };
+        return { success: true, data: rows };
+    } catch (error) {
+        console.error("DB ERROR (getUserByUsername):", error);
+        return { success: false, message: "Failed to fetch user." };
+    }
+}
+
 async function addNewPost(userId, title, description) {
     try {
         await pool.query(
@@ -37,10 +52,10 @@ async function addNewPost(userId, title, description) {
 
 async function getAllPosts() {
     try {
-       const { rows } = await pool.query("SELECT * from posts;")
-       return { success: true, data: rows };
+        const { rows } = await pool.query("SELECT * from posts;");
+        return { success: true, data: rows };
     } catch (error) {
-      console.error("DB ERROR (getAllPosts):", error);
+        console.error("DB ERROR (getAllPosts):", error);
         return { success: false, message: "Failed to fetch posts." };
     }
 }
@@ -48,5 +63,6 @@ async function getAllPosts() {
 export default {
     getAllUsers,
     addNewPost,
-    getAllPosts
+    getAllPosts,
+    getUserByUsername
 };

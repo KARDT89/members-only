@@ -2,7 +2,12 @@ import pool from "../db/pool.js";
 import bcrypt from "bcryptjs";
 
 function getSignup(req, res) {
-    res.render("forms/sign-up-form");
+    res.render("forms/sign-up-form", {
+        errors: [],
+        username: '',
+        password: '',
+        confirmPassword: ''
+    });
 }
 async function postSignup(req, res, next) {
     try {

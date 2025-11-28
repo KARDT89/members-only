@@ -5,11 +5,13 @@ import {
     getLogin,
 } from "../controllers/auth.controller.js";
 import passport from "passport";
+import { signupValidate } from "../middleware/validate.js";
+import { signupValidator } from "../validators/signupValidators.js";
 
 const router = new Router();
 
 router.get("/sign-up", getSignup);
-router.post("/sign-up", postSignup);
+router.post("/sign-up", signupValidator, signupValidate, postSignup);
 router.get("/login", getLogin);
 router.post(
     "/login",
@@ -27,6 +29,5 @@ router.get("/log-out", (req, res, next) => {
         res.redirect("/");
     });
 });
-
 
 export default router;
