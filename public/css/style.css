@@ -24,41 +24,50 @@
     background: rgb(37, 40, 43); 
   }
 
-  .all-post-container{
+.all-post-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 2rem;
-  }
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
 
 .post-card {
-    background-color: black;
-    border: 1px solid #333;
+    background: #1a1d20;
+    border: 1px solid #2a2d31;
     padding: 1.5rem;
-    margin: 1rem;
-    max-width: 400px;
-
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
 
-    border-radius: 8px;
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .post-title {
-    font-size: 1.2rem;
+    margin: 0;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #fff;
-    margin: 0;
-    background-color: black;
+    background-color: #1a1d20;
 }
 
 .post-desc {
-    font-size: 0.8rem;
-    background-color: black;
-    color: #ccc;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #c7c7c7;
+    background-color: #1a1d20;
+}
+
+.post-card p {
     margin: 0;
-    text-align: left;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+    background-color: #1a1d20;
 }
 
 h1 {

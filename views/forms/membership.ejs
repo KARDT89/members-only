@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/forms.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <%- include("../partials/navbar", { user }) %>
+        <div class="container">
+            <h1>Membership</h1>
+
+            <form action="/membership" method="POST">
+                <% if (status) { %>
+                <p style="color: green; text-align: center; background-color: #1a1d20;">You are a Member</p>
+                <% } else { %>
+                <p style="color: red; text-align: center; background-color: #1a1d20;">You are not a Member</p>
+                <% } %>
+
+                <label for="password">Enter SECRET: </label>
+                <input id="password" name="password" type="password" />
+                <% if (error) { %>
+                  <p id="error"><%= error %></p>
+                <% } %>
+                <% if (status) { %>
+                <button id="logout" type="submit">Cancel Membership</button>
+                <% } else { %>
+                <button type="submit">JOIN THE CLUB</button>
+                <% } %>
+                
+            </form>
+        </div>
+    </body>
+</html>

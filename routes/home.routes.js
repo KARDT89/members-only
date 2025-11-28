@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { getUsernames, getHome } from "../controllers/home.controller.js";
+import { getHome, getMembership, postMembership } from "../controllers/home.controller.js";
 
+const router = new Router();
 
-const router = new Router()
-
-router.get("/", getHome)
+router.get("/", getHome);
+router.get("/membership", getMembership);
+router.post("/membership", postMembership);
 
 export default router;
