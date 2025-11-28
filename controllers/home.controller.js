@@ -55,7 +55,7 @@ async function getMembership(req, res) {
 }
 
 async function postMembership(req, res) {
-    const secretPassword = "TOP";
+    const secretPassword = "theodinproject";
     try {
         const { password } = req.body;
         if (password === secretPassword) {

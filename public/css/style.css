@@ -5,6 +5,30 @@
     background-color: rgb(13, 14, 15);
     color: white;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.page-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bar {
+    margin-top: auto; /* pushes footer to the bottom */
+}
+
+@font-face {
+  font-family: 'dt89';
+  src: url('../fonts/Slope\ Opera.otf') format('opentype');
+}
+
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -46,6 +70,15 @@
 .post-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+#logo{
+  display: flex;
+  font-size: 1.2rem;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .post-title {
@@ -96,5 +129,32 @@ h1 {
     text-align: center;
 }
 
+.footer-bar {
+    position: sticky;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(13, 14, 15); /* similar to bg-background/50 */
+    backdrop-filter: blur(10px);     /* background-blur-xl */
+    color: #fff;                     /* text-foreground */
+    padding: 4px;                    /* p-1 */
+    font-size: 12px;                 /* text-xs */
+    gap: 8px;                        /* gap-2 */
+    z-index: 50;
+    overflow: hidden;
+}
+
+.footer-text {
+    font-family: monospace;          /* font-mono */
+    padding-bottom: 4px;   
+    background-color: rgb(13, 14, 15);      
+}
+
+#dt89 {
+    font-family: dt89;
+}
 
 

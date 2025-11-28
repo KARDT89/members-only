@@ -15,12 +15,11 @@
             <a href="/posts/new"><button>Add a New Post</button></a>
         </div>
         <div class="all-post-container">
-         <% if (data.length > 0) { %>
+         <% if (data && data.length > 0) { %>
                 <% data.forEach(post => { %>
                     <div class="post-card">
                         <h2 class="post-title">
                             <%= post.title %>
-                          
                             <div class="post-card-btn">
                                <a href="/posts/edit/<%= post.id %>"><button class="delete-btn"><img src="/icons/edit.png" alt="" width="25px"></button></a>
                                <form style="padding: 0;" action="/posts/delete/<%= post.id %>" method="post" >
@@ -30,12 +29,13 @@
                         </h2>
                         <p class="post-desc"><%= post.description %></p>
                         <% if (user && user.is_member === true) { %>
-                            <p><%= post.created_at.toLocaleString() %></p>
                             <p>Posted by: <%= user.username %></p>
+                            <p><%= post.created_at.toLocaleString() %></p>
                         <% } %>
-                       
                     </div>
                     <% }) %>
+                    <% } else { %>
+                     <h1> No posts </h1>
             <% } %>
         </div>
     </body>

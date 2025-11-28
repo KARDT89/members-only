@@ -9,12 +9,11 @@
     </head>
     <body>
         <%- include("../partials/navbar", { user }) %>
-        <h1>Welcome to Pulse</h1>
         <% if (error) { %>
         <p id="error"><%= error %></h1>
         <% } %>
         <div class="all-post-container">
-            <% if (data.length > 0) { %>
+            <% if (data && data.length > 0) { %>
                 <% data.forEach(post => { %>
                     <div class="post-card">
                         <h2 class="post-title">
@@ -29,12 +28,16 @@
                         </h2>
                         <p class="post-desc"><%= post.description %></p>
                         <% if (user && user.is_member === true) { %>
-                            <p><%= post.created_at.toLocaleString() %></p>
                             <p>Posted by: <%= post.username %></p>
-                            <% } %>
+                            <p><%= post.created_at.toLocaleString() %></p>
+                            <% } else { %>
+                                <p>Posted by: *****</p>
+                                <p>********</p>
+                        <% } %>
                     </div>
                     <% }) %>
             <% } %>
         </div>
+       
     </body>
 </html>

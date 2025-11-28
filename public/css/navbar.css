@@ -3,8 +3,11 @@
     --navbar-hover: rgb(255, 255, 255);
 }
 
-ul {
+.navbar-container {
     display: grid;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
     grid-template-columns: 1fr 1fr 1fr;
     list-style-type: none;
     justify-content: space-between;
@@ -14,6 +17,7 @@ ul {
     background-color: var(--navbar-background);
     padding-left: 2rem;
     padding-right: 0.5rem;
+    
 }
 
 ul > :nth-child(3) {
